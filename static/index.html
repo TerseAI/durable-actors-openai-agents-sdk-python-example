@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>Durable Actors Chat</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/chat.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-group">
+      <a class="brand" href="/">Durable Actors Chat</a>
+      <span id="connection" class="connection" data-state="connecting" role="status" title="Connecting">
+        <span id="connection-label" class="sr-only">Connecting</span>
+      </span>
+    </div>
+    <form id="room-form" class="room-controls">
+      <input id="room" aria-label="Chat ID" placeholder="enter in the id" maxlength="64" pattern="[a-zA-Z0-9_-]+" required value="lobby">
+      <button type="submit">Open</button>
+    </form>
+  </header>
+  <div class="workspace">
+    <main>
+      <div id="scroll-area" class="scroll-area">
+        <div id="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"></div>
+      </div>
+      <div class="composer-area">
+        <div id="error" role="alert" hidden><span id="error-text"></span></div>
+        <form id="composer">
+          <label class="sr-only" for="message">Your message</label>
+          <textarea id="message" rows="2" maxlength="8000" placeholder="Send a message…" required></textarea>
+          <button id="send" type="submit" disabled>Send <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
+        </form>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
